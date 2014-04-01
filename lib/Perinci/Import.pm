@@ -5,6 +5,8 @@ use strict;
 use warnings;
 use experimental 'smartmatch';
 
+our $VERSION = '0.02'; # VERSION
+
 sub import {
     my $pkg = shift;
     my $mod = shift or die "Please specify module to import";
@@ -116,7 +118,7 @@ Perinci::Import - Import functions from another module
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -138,7 +140,9 @@ functions, their tags, etc are consulted from L<Rinci> metadata (located in
 C<%SPEC> package variable). Other features include: wrapping functions,
 importing to another name, etc.
 
-C<Perinci::Import> is now preferred over C<Perinci::Exporter>.
+C<Perinci::Import> is now preferred over C<Perinci::Exporter> as this frees
+module authors from specifying an exporter explicitly. Personally, I also
+use the venerable L<Exporter> on some modules.
 
 =head1 IMPORTING
 
@@ -175,7 +179,7 @@ Each function can have import options, specified in a hashref:
 
 Each import key, unless those prefixed by dash (C<->) will be passed to the
 C<convert> argument of L<Perinci::Sub::Wrapper>'s C<wrap_sub()>. Function will
-be wrapped if one of more wrap arguments are specified (or C<< -wrap => 1 >> is
+be wrapped if one of more such arguments are specified (or C<< -wrap => 1 >> is
 given. In the above example, C<f1> is wrapped because C<args_as> is specified.
 C<f2> is not wrapped.
 

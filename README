@@ -2,7 +2,7 @@ NAME
     Perinci::Import - Import functions from another module
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
      # import some functions
@@ -22,7 +22,9 @@ DESCRIPTION
     metadata (located in %SPEC package variable). Other features include:
     wrapping functions, importing to another name, etc.
 
-    "Perinci::Import" is now preferred over "Perinci::Exporter".
+    "Perinci::Import" is now preferred over "Perinci::Exporter" as this
+    frees module authors from specifying an exporter explicitly. Personally,
+    I also use the venerable Exporter on some modules.
 
 IMPORTING
     The basic syntax is:
@@ -58,7 +60,7 @@ IMPORTING
 
     Each import key, unless those prefixed by dash ("-") will be passed to
     the "convert" argument of Perinci::Sub::Wrapper's "wrap_sub()". Function
-    will be wrapped if one of more wrap arguments are specified (or "-wrap
+    will be wrapped if one of more such arguments are specified (or "-wrap
     => 1" is given. In the above example, "f1" is wrapped because "args_as"
     is specified. "f2" is not wrapped.
 
